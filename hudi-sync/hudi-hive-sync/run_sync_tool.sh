@@ -51,7 +51,7 @@ LOG_JAR=`ls ${HIVE_HOME}/lib/log4j-*.jar | tr '\n' ':'`
 HADOOP_COMMON_JAR=`ls ${HADOOP_HOME}/hadoop-common.jar | tr '\n' ':'`
 HIVE_JARS=$HIVE_METASTORE:$HIVE_SERVICE:$HIVE_EXEC:$HIVE_JDBC:$HIVE_JACKSON:$LOG_JAR:$HADOOP_COMMON_JAR
 
-HADOOP_HIVE_JARS=${HIVE_JARS}:${HADOOP_HOME}/share/hadoop/common/*:${HADOOP_HOME}/share/hadoop/mapreduce/*:${HADOOP_HOME}/share/hadoop/hdfs/*:${HADOOP_HOME}/share/hadoop/common/lib/*:${HADOOP_HOME}/share/hadoop/hdfs/lib/*:${HDFS_HOME}/*:${HADOOP_HOME}/*:${HADOOP_HOME}/lib/*:${MAPREDUCE_HOME}/*
+HADOOP_HIVE_JARS=${HIVE_JARS}:${HADOOP_HOME}/share/hadoop/common/*:${HADOOP_HOME}/share/hadoop/mapreduce/*:${HADOOP_HOME}/share/hadoop/hdfs/*:${HADOOP_HOME}/share/hadoop/common/lib/*:${HADOOP_HOME}/share/hadoop/hdfs/lib/*:${HDFS_HOME}/*:${HADOOP_HOME}/*:${HADOOP_HOME}/lib/*:${MAPREDUCE_HOME}/*:${HIVE_HOME}/lib/*
 
 echo "Running Command : java -cp ${HADOOP_HIVE_JARS}:${HADOOP_CONF_DIR}:$HUDI_HIVE_UBER_JAR org.apache.hudi.hive.HiveSyncTool $@"
 java -cp $HUDI_HIVE_UBER_JAR:${HADOOP_HIVE_JARS}:${HADOOP_CONF_DIR} org.apache.hudi.hive.HiveSyncTool "$@"
